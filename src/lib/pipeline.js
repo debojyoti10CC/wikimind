@@ -47,8 +47,8 @@ function normalizeDirectory(value) {
 }
 
 // ─── Rate limiting ────────────────────────────────────────────────────────────
-// Free tier: 5 requests/minute. We enforce a minimum gap between Gemini calls.
-const GEMINI_MIN_GAP_MS = 13000; // 13s → max ~4.6 req/min, safely under 5
+// Gemini 2.5 Flash free tier allows ~15 RPM. We enforce a minimum gap between calls.
+const GEMINI_MIN_GAP_MS = 4000; // 4s → max ~15 req/min
 let lastGeminiCallAt = 0;
 
 async function rateLimitedGemini(fn, onProgress) {
@@ -107,7 +107,7 @@ export async function runAbsorptionPipeline(entries, onProgress, onStats) {
 
       // STEP 2: Extract entities
       onProgress(`[${i + 1}/${total}] Extracting entities...`);
-      const entities = await rateLimitedGemini(() => extractEntities(entry.text), onProgress);
+      const entities = await rateLimitedGemini(() => extractEntities(entry.text, onProgress), onProgress);
 
       const allEntities = [
         ...(entities.people   || []).map(n => ({ name: n, dir: 'people' })),
@@ -147,14 +147,14 @@ export async function runAbsorptionPipeline(entries, onProgress, onStats) {
             version = (existing.metadata.version || 1) + 1;
             onProgress(`  ↻ Updating: ${entity.name} (v${version})`);
             articleText = await rateLimitedGemini(() =>
-              updateArticle(entity.name, existing.content, entry.text, version),
+              updateArticle(entity.name, existing.content, entry.text, version, onProgress),
               onProgress
             );
             results.updated.push(entity.name);
           } else {
             onProgress(`  + Creating: ${entity.name} (${entity.dir})`);
             articleText = await rateLimitedGemini(() =>
-              createArticle(entity.name, entity.dir, [entry.text]),
+              createArticle(entity.name, entity.dir, [entry.text], onProgress),
               onProgress
             );
             results.created.push(entity.name);

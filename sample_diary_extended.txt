@@ -1,0 +1,243 @@
+2023-08-12
+First week at IIT Bombay hostel. My roommate is Rahul — he's from Jaipur, CS branch like me.
+Quiet guy, reads a lot. We stayed up till 3am talking about startups. He has this notebook
+where he writes down every business idea he gets. Already filled half of it. I think we're
+going to be close friends.
+
+2023-09-03
+Met Priya at the entrepreneurship cell orientation. She gave a talk about her gap year —
+she spent six months in Bangalore working at a seed-stage fund. Sharp, confident, knows
+everyone in the room already. She introduced herself to me after and said she'd heard I was
+interested in consumer tech. I don't know how she knew that.
+
+2023-10-15
+Arjun transferred into our batch from BITS Pilani. Engineering background, systems thinker.
+He and Rahul hit it off immediately — they spent the entire weekend building a small
+inventory tool for the college canteen. Just for fun. I watched them work and felt like
+I was seeing something real.
+
+2023-11-20
+Priya pulled me into a late-night session at the e-cell lab. She's been researching the
+quick commerce space — Zepto, Blinkit, Swiggy Instamart. Her thesis is that none of them
+have cracked the tier-2 city problem. She thinks there's a company to be built there.
+I couldn't sleep after that conversation.
+
+2023-12-05
+Rahul showed me his notebook. Page after page of ideas, but one kept coming back:
+a B2B inventory management layer for kirana stores that plugs into quick commerce backends.
+He called it "the missing middleware." I told him it sounded like Zepto's infrastructure
+problem from the inside. He said — exactly.
+
+2024-01-08
+New year. Rahul, Arjun, Priya and I had dinner at the dhaba near the gate. We talked for
+four hours. By the end of it we had a rough plan: build the B2B layer, call it Zepto
+internally for now, raise a small pre-seed from the e-cell fund, and launch in one
+tier-2 city as a pilot. Priya said she could get us a meeting with her VC contact in Bangalore.
+
+2024-01-15
+Had coffee with Rahul today. We talked about the Zepto pivot — he thinks we should focus on B2B.
+I'm not sure. Met at IIT Bombay back in 2019. He's my most trusted person for product decisions.
+The conversation went on for three hours at the Blue Tokai in Koramangala. He has this way of
+cutting through the noise that I've always admired.
+
+2024-01-22
+Working late on Zepto again. Arjun joined the team this week as CTO.
+The pressure from the investors is getting intense. Read Atomic Habits again on the commute.
+Arjun brings a completely different energy — more systematic, less intuitive than Rahul.
+I think that's exactly what we need right now. The engineering culture has been chaotic.
+
+2024-02-01
+Goa trip with Rahul and Priya. Needed the break badly.
+Priya mentioned she's thinking of joining a VC fund. The conversations at the beach house were
+some of the best I've had. We stayed in this little place in Anjuna, right by the water.
+Priya has this clarity about the startup world that I find grounding.
+
+2024-02-10
+Back from Goa. Arjun had shipped three features while we were gone. He sent a Slack message
+at 2am saying "deployed to prod, go check." That's the kind of CTO you want. Rahul called it
+"Arjun being Arjun." We're starting to develop our own language as a team.
+
+2024-02-14
+Rejected from YC again. Second time. Hard day. Called mom. Arjun said we should pivot to
+enterprise — maybe he's right. Started reading Zero to One. Can't sleep.
+The rejection letter was kind but firm. Rahul texted immediately — he always knows when
+something's wrong.
+
+2024-02-20
+Long call with Priya. She's been talking to Sequoia's scout program. She thinks Zepto's
+real problem is positioning — we're pitching as infrastructure but we look like a logistics
+startup. She suggested we reframe around "merchant intelligence." I wrote that down.
+
+2024-03-05
+Long call with Priya about the VC path. She's seriously considering Sequoia's scout program.
+I think she'd be incredible at it — she has the pattern recognition and the network.
+Talked about IIT Bombay days, how different everything felt then. Simpler problems.
+
+2024-03-10
+Arjun built a dashboard overnight that shows real-time inventory velocity for our pilot
+merchants in Nagpur. Rahul saw it and went quiet for a minute, then said "this is the product."
+I think he's right. The data layer is more interesting than the logistics layer.
+
+2024-03-18
+Arjun and I had a real disagreement today about the product roadmap. He wants to cut the
+consumer features entirely and go full enterprise. I think we'd be abandoning what makes
+Zepto interesting. Rahul sided with Arjun on a call — that stung a little.
+But I know they're probably right. Emotions are clouding my judgment.
+
+2024-03-25
+Priya introduced us to Vikram — a partner at a small Bangalore fund called Tangent Ventures.
+He spent two hours with us, asked hard questions about unit economics. At the end he said
+"I want to see your Nagpur numbers in 30 days." That's not a no. Priya was right about him.
+
+2024-04-02
+Moved to Bangalore officially. Left Kolkata after six years. Strange feeling.
+The apartment in Indiranagar is small but the light is good. Arjun helped me move.
+Starting to feel like Bangalore is home now, even if I resist saying it.
+
+2024-04-08
+Vikram from Tangent Ventures came back with a term sheet. Small check — 40 lakhs — but
+it's real money and a real signal. Rahul cried a little. I've never seen him do that before.
+Arjun immediately opened his laptop and started writing the engineering roadmap.
+Priya sent a voice note: "I told you so." She was right.
+
+2024-04-15
+First team offsite in Coorg. Six people now — me, Rahul, Arjun, and three engineers we
+hired from BITS and IIT Delhi. Rahul ran a session on product philosophy. He talked about
+the difference between building for metrics and building for people. Everyone was quiet
+after. That's the kind of founder he is.
+
+2024-04-20
+Zepto hit 10,000 users this week. Small number by any VC metric but it felt real.
+Arjun was genuinely excited — first time I've seen him drop the CTO composure.
+Rahul sent a voice note at midnight. Priya posted about it on LinkedIn which drove
+another 500 signups.
+
+2024-04-28
+Vikram made an introduction to Meera — she runs operations at a large FMCG distributor
+in Pune. If she pilots Zepto's merchant intelligence layer, it's our first enterprise
+contract. Rahul spent a week preparing the deck. I've never seen him work that hard.
+
+2024-05-05
+Meera signed. First enterprise contract. 6-month pilot, renewable.
+Arjun said "now we have to actually build it." Rahul laughed for the first time in weeks.
+I called Priya — she was in a Sequoia meeting but stepped out to take it. That meant
+everything.
+
+2024-05-10
+Finished Zero to One. Thiel's point about secrets — things you believe that most people
+don't — keeps rattling around. What do I believe about Zepto that the market doesn't yet?
+I think the secret is that people want tools that feel personal, not enterprise-grade cold.
+Started a new note called "The Intimacy Thesis."
+
+2024-05-18
+Priya officially joined Sequoia as a scout. She texted: "I'll be watching Zepto from the
+other side of the table now." I don't know if that's a threat or a promise. Probably both.
+Rahul said it's the best thing that could happen — having a friend inside the room.
+
+2024-05-25
+Arjun hired Neha as head of data. She came from Flipkart's analytics team. First day she
+rewrote our entire data pipeline in four hours and said "this is cleaner now." Arjun looked
+both offended and impressed. I think she's going to change how we think about the product.
+
+2024-06-03
+Neha presented her first analysis: our best-performing merchants share one trait — they
+check the dashboard before 8am. She called it "the morning ritual hypothesis." Rahul
+immediately wanted to build a morning briefing feature. Arjun said we should validate first.
+This is the tension that makes us good.
+
+2024-06-10
+Read The Hard Thing About Hard Things by Ben Horowitz. The chapter on "the struggle" hit
+differently this month. We're not struggling — but I can feel the weight of it building.
+Rahul recommended it. He said he reads it every time he feels like quitting.
+
+2024-06-20
+Vikram brought in a co-investor — a family office from Mumbai called Meridian Capital.
+They want a board seat. Rahul and I spent three days debating whether to give it.
+Arjun said "just make sure they add value beyond the check." We gave them the seat.
+
+2024-07-04
+Team lunch for Arjun's birthday. He turned 24. He gave a small speech — said Zepto was
+the first place he'd worked where he felt like his instincts were trusted. I didn't expect
+that. Rahul looked proud. I felt proud too.
+
+2024-07-15
+Priya sent a deal memo from Sequoia — not about us, but about a competitor in the same
+space. She sent it with one line: "you're 18 months ahead of these guys." I printed it
+and put it on the wall.
+
+2024-07-22
+Neha's morning briefing feature launched. Day one retention: 67%. Arjun admitted he was
+wrong to push back. Rahul said "Neha is the best hire we've made." I agree.
+The product is starting to feel alive in a way it didn't before.
+
+2024-08-01
+First board meeting with Vikram and Meridian Capital. Prepared for three weeks.
+Rahul presented the product roadmap. Arjun presented the engineering plan. I presented
+the market thesis. Vikram said "this is the most prepared seed-stage team I've seen."
+Meridian's partner said nothing, which I've learned means he's interested.
+
+2024-08-10
+Meridian's partner — his name is Suresh — called me directly after the board meeting.
+He said he wants to lead the Series A when we're ready. He said "don't rush it."
+I told Rahul. He said "now we have to be worth it."
+
+2024-08-20
+Priya visited the office for the first time since joining Sequoia. She walked around,
+talked to the team, looked at the dashboard. At the end she said "you've built something
+real." Coming from her, that's the highest compliment I know.
+
+2024-09-05
+Arjun and Neha had a disagreement about the data architecture. It got heated. Rahul
+pulled them both aside separately, then brought them back together. By evening they'd
+designed something better than either of them had proposed alone. That's what good
+leadership looks like.
+
+2024-09-15
+Meera renewed the Pune contract and referred us to two other distributors in Maharashtra.
+Organic growth. No sales team. Just the product working. Rahul said "this is the only
+kind of growth that matters." I'm starting to believe him.
+
+2024-09-28
+Flew to Delhi for a conference. Ran into the founder of the competitor Priya had flagged.
+He was friendly, asked good questions. I realized we're not afraid of them anymore.
+Six months ago I would have been. Something has shifted.
+
+2024-10-10
+Rahul told me he's been having doubts. Not about Zepto — about himself. Whether he's
+the right person to scale this. I told him the fact that he's asking the question means
+he probably is. He didn't look convinced. I'm going to keep an eye on him.
+
+2024-10-20
+Arjun shipped the enterprise API. Meera's team integrated it in two days. She called it
+"the smoothest integration we've done with any vendor." Arjun forwarded the message to
+the team with no comment. That's his version of celebration.
+
+2024-11-01
+Series A prep begins. Suresh from Meridian is leading. Priya is advising from the Sequoia
+side — not officially, but she's been on three calls. Rahul is in his element: he loves
+the narrative work. I'm handling the financial model. Arjun is building the data room.
+
+2024-11-15
+Neha gave notice. She's been offered a VP role at a Series B company. I'm gutted.
+Rahul took it hard. Arjun said "we should have given her equity earlier." He's right.
+We're going to fix that for the next hire. Painful lesson.
+
+2024-11-28
+Neha's last day. She left a document called "What I Know About Your Data" — 40 pages
+of institutional knowledge. That's the kind of person she was. Rahul read the whole
+thing that night and sent her a long message. She replied: "build something worth
+writing about."
+
+2024-12-10
+Series A closed. 3.2 crore. Suresh led, Tangent Ventures followed on, and — this is the
+part I still can't believe — Priya got Sequoia to put in a small check as a scout deal.
+She texted: "now I'm officially on your cap table." Rahul called it "the best day since
+the Meera contract." I think it might be the best day, full stop.
+
+2024-12-20
+End of year. Sitting in the Indiranagar apartment. Rahul is asleep on the couch.
+Arjun is somewhere in Bangalore with his family. Priya is in San Francisco for a Sequoia
+offsite. Neha is at her new job. Meera is probably planning Q1 with her team in Pune.
+Suresh sent a year-end note: "proud to be on this journey."
+I started this year not knowing if Zepto would survive. I'm ending it not knowing how
+far it can go. That's a better kind of uncertainty.

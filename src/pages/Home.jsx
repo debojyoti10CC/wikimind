@@ -3,6 +3,7 @@ import { useWiki } from '../context/useWiki';
 import TopBar from '../components/TopBar';
 import Sidebar from '../components/Sidebar';
 import UploadZone from '../components/UploadZone';
+import NotionImport from '../components/NotionImport';
 import ProgressLog from '../components/ProgressLog';
 import { parseFile } from '../lib/parsers';
 import { runAbsorptionPipeline } from '../lib/pipeline';
@@ -14,6 +15,21 @@ export default function Home() {
     setAbsorbing, addProgress, setStats,
     loadArticles, articles, directories, loadError,
   } = useWiki();
+
+  const absorbEntries = async (entries, label) => {
+    if (isAbsorbing) return;
+    if (!entries.length) { addProgress(`No entries found from ${label}.`); return; }
+    addProgress(`Parsed ${entries.length} entries from ${label}. Starting absorption…`);
+    setAbsorbing(true);
+    try {
+      await runAbsorptionPipeline(entries, addProgress, setStats);
+      await loadArticles();
+    } catch (err) {
+      addProgress(`✗ Pipeline error: ${err.message}`);
+    } finally {
+      setAbsorbing(false);
+    }
+  };
 
   const handleFiles = async (fileResults) => {
     if (isAbsorbing) return;
@@ -27,17 +43,7 @@ export default function Home() {
         addProgress(`✗ Failed to parse ${name}: ${err.message}`);
       }
     }
-    if (!allEntries.length) { addProgress('No entries found in the uploaded files.'); return; }
-    addProgress(`Parsed ${allEntries.length} entries from ${fileResults.length} file(s). Starting absorption…`);
-    setAbsorbing(true);
-    try {
-      await runAbsorptionPipeline(allEntries, addProgress, setStats);
-      await loadArticles();
-    } catch (err) {
-      addProgress(`✗ Pipeline error: ${err.message}`);
-    } finally {
-      setAbsorbing(false);
-    }
+    await absorbEntries(allEntries, `${fileResults.length} file(s)`);
   };
 
   const showProgress = isAbsorbing || absorptionProgress.length > 0;
@@ -100,6 +106,11 @@ export default function Home() {
                 </div>
 
                 <UploadZone onFiles={handleFiles} />
+                <NotionImport
+                  disabled={isAbsorbing}
+                  onProgress={addProgress}
+                  onEntries={absorbEntries}
+                />
               </div>
 
               {/* Right: directory index */}
@@ -175,6 +186,11 @@ export default function Home() {
             /* Empty state */
             <div style={{ maxWidth: 600 }}>
               <UploadZone onFiles={handleFiles} />
+              <NotionImport
+                disabled={isAbsorbing}
+                onProgress={addProgress}
+                onEntries={absorbEntries}
+              />
               <div style={{
                 marginTop: 20,
                 padding: '12px 16px',
@@ -207,6 +223,11 @@ export default function Home() {
               {!isAbsorbing && (
                 <div style={{ marginTop: 20 }}>
                   <UploadZone onFiles={handleFiles} />
+                  <NotionImport
+                    disabled={isAbsorbing}
+                    onProgress={addProgress}
+                    onEntries={absorbEntries}
+                  />
                 </div>
               )}
             </div>

@@ -3,7 +3,7 @@ const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GE
 
 // ─── Rate-limit aware fetch with retry ───────────────────────────────────────
 
-async function callGeminiWithRetry(prompt, maxTokens, retries = 4) {
+async function callGeminiWithRetry(prompt, maxTokens, onProgress, retries = 5) {
   if (!import.meta.env.VITE_GEMINI_API_KEY) {
     throw new Error('Missing VITE_GEMINI_API_KEY. Add it to .env and restart the dev server.');
   }
@@ -27,7 +27,7 @@ async function callGeminiWithRetry(prompt, maxTokens, retries = 4) {
 
     if (res.status === 429) {
       // Parse retryDelay from the error body if present
-      let waitMs = 15000; // default 15s
+      let waitMs = 60000; // default 60s for quota exhaustion
       try {
         const errJson = JSON.parse(errText);
         const retryInfo = errJson?.error?.details?.find(d =>
@@ -36,12 +36,15 @@ async function callGeminiWithRetry(prompt, maxTokens, retries = 4) {
         if (retryInfo?.retryDelay) {
           // retryDelay is like "54s" or "54.3s"
           const secs = parseFloat(retryInfo.retryDelay.replace('s', ''));
-          if (!isNaN(secs)) waitMs = Math.ceil(secs * 1000) + 1000; // +1s buffer
+          if (!isNaN(secs)) waitMs = Math.ceil(secs * 1000) + 2000; // +2s buffer
         }
       } catch { /* use default */ }
 
       if (attempt < retries) {
-        console.log(`Gemini 429 — waiting ${Math.round(waitMs / 1000)}s before retry ${attempt + 1}/${retries}…`);
+        const waitSecs = Math.round(waitMs / 1000);
+        const msg = `  ⏱ Gemini quota hit — waiting ${waitSecs}s before retry ${attempt + 1}/${retries}…`;
+        console.log(msg);
+        onProgress?.(msg);
         await new Promise(r => setTimeout(r, waitMs));
         continue;
       }
@@ -51,11 +54,11 @@ async function callGeminiWithRetry(prompt, maxTokens, retries = 4) {
   }
 }
 
-export async function callGemini(prompt, maxTokens = 2000) {
-  return callGeminiWithRetry(prompt, maxTokens);
+export async function callGemini(prompt, maxTokens = 2000, onProgress = null) {
+  return callGeminiWithRetry(prompt, maxTokens, onProgress);
 }
 
-export async function extractEntities(entryText) {
+export async function extractEntities(entryText, onProgress) {
   const prompt = `Read this personal diary/note entry and extract named entities.
 
 Entry: ${entryText.slice(0, 3000)}
@@ -77,7 +80,7 @@ Rules:
 - Return empty arrays if nothing qualifies
 - No generic concepts like "love", "work", "life"`;
 
-  const response = await callGemini(prompt, 500);
+  const response = await callGemini(prompt, 500, onProgress);
   try {
     const cleaned = extractJsonObject(response);
     return JSON.parse(cleaned);
@@ -94,7 +97,7 @@ function extractJsonObject(text) {
   return cleaned;
 }
 
-export async function createArticle(entityName, directory, entryTexts) {
+export async function createArticle(entityName, directory, entryTexts, onProgress) {
   const combinedEntries = entryTexts.slice(0, 3).join('\n\n---\n\n').slice(0, 5000);
 
   const prompt = `You are writing a Wikipedia article for someone's PERSONAL wiki — like Farzapedia.
@@ -122,10 +125,10 @@ Rules:
 
 Return ONLY the markdown. No preamble.`;
 
-  return callGemini(prompt, 2000);
+  return callGemini(prompt, 2000, onProgress);
 }
 
-export async function updateArticle(entityName, existingContent, newEntryText, version) {
+export async function updateArticle(entityName, existingContent, newEntryText, version, onProgress) {
   const prompt = `You are maintaining a personal Wikipedia article. Update it with new information from a diary entry.
 
 EXISTING ARTICLE (v${version - 1}):
@@ -143,7 +146,7 @@ Rules:
 6. End with: SUMMARY: <updated one-sentence summary>
 7. Return ONLY the updated markdown. Start with # Title.`;
 
-  return callGemini(prompt, 2000);
+  return callGemini(prompt, 2000, onProgress);
 }
 
 export async function answerQuery(question, articleIndex) {

@@ -29,70 +29,111 @@ Drop your diary exports, Apple Notes, iMessages, or any personal text files. **W
 
 <div align="left">
 
-##  Features
+---
 
-- **Autonomous Extraction Pipeline** – Automatically parses diary entries, extracts core entities, and structural links.
-- **AI-Powered Synthesizer** – Leverages Gemini 1.5 Flash to automatically draft and update encyclopedic articles about your own life.
-- **Interactive Knowledge Graph** – Visualizes how people, projects, places, and life decisions interconnect dynamically in 2D space.
-- **Bi-directional Wikilinks** – Fully navigate your life using native text `[[wikilinks]]` with auto-generated contextual backlink panels.
-- **Natural Language Querying** – Ask your wiki complex questions about your past, your friends, or historical choices using conversational prompts.
-- **Total Privacy & Ownership** – Zero third-party data tracking. Everything sits securely inside your own HydraDB tenant instance.
+## Features
 
-##  Installation & Quick Start
+**Autonomous ingestion pipeline** — Parses your files, splits them into entries, and extracts named entities without any manual tagging.
 
-### Step 1: Clone and Install Dependencies
+**AI-written articles** — Gemini 1.5 Flash drafts and updates encyclopedic articles about the entities in your life, in proper Wikipedia style, with wikilinks cross-referencing related entries.
+
+**Interactive knowledge graph** — A 2D visual map showing how the people, places, projects, and decisions in your life interconnect.
+
+**Bi-directional wikilinks** — Click any `[[link]]` to navigate between articles. Every article also shows its backlinks — every other article that references it.
+
+**Natural language queries** — Ask your wiki questions in plain English. "When did I last work with Rahul?" or "What led to the YC rejection?" — it answers from your own data.
+
+**Total privacy** — No third-party tracking. All data is stored in your own HydraDB tenant instance.
+
+---
+
+## Quick Start
+
+### 1. Clone and install
 
 ```bash
-# Clone the repository
-git clone [https://github.com/debojyoti10cc/wikimind.git](https://github.com/debojyoti10cc/wikimind.git)
+git clone https://github.com/debojyoti10cc/wikimind.git
 cd wikimind
-
-# Install required node modules
 npm install
-## Setup
+```
 
-1. Clone this repo
-2. Copy `.env.example` to `.env`
-3. Fill in your credentials:
-   ```
-   VITE_HYDRADB_API_KEY=<your key from app.hydradb.com>
-   VITE_HYDRADB_TENANT_ID=wiki
-   VITE_GEMINI_API_KEY=<your key from aistudio.google.com>
-   ```
-4. `npm install`
-5. `npm run dev`
+### 2. Configure environment
 
----
+Copy `.env.example` to `.env` and fill in your credentials:
 
-## How it works
+```env
+VITE_HYDRADB_API_KEY=<your key from app.hydradb.com>
+VITE_HYDRADB_TENANT_ID=wiki
+VITE_GEMINI_API_KEY=<your key from aistudio.google.com>
+```
 
-1. **Upload** your personal data — diary exports, notes, iMessages, any text
-2. **Absorption pipeline** parses entries, extracts named entities (people, places, projects, ideas), and calls Gemini to write Wikipedia-style articles
-3. **Articles** are stored in your HydraDB tenant and rendered with full wikilink navigation
-4. **Knowledge graph** shows how everything in your life connects
-5. **Ask your wiki** — query your own life with natural language
+Get your HydraDB key at [app.hydradb.com](https://app.hydradb.com) and your Gemini key at [aistudio.google.com](https://aistudio.google.com).
+
+### 3. Run
+
+```bash
+npm run dev
+```
 
 ---
 
-## Supported formats
+## How It Works
+
+WikiMind processes your files in three phases:
+
+**Phase 1 — Parse.** Format-specific parsers split your files into individual entries. Date headers like `2024-01-15` are detected automatically and used to sequence entries chronologically.
+
+**Phase 2 — Extract.** Gemini scans each entry for named entities — people, places, projects, ideas, media — and categorizes them.
+
+**Phase 3 — Synthesize.** For each entity, Gemini consolidates everything mentioned about it across all your entries into a single, coherent Wikipedia-style article. Articles are stored in HydraDB and cross-linked with wikilinks.
+
+The knowledge graph and query interface are built on top of the resulting article store.
+
+```
+User uploads files
+        │
+        ▼
+  Format parsers              .txt, .md, .json, .html, .csv
+        │
+        ▼
+  Entity extraction           Gemini identifies people, places, projects, media
+        │
+        ▼
+  Article synthesis           Gemini writes encyclopedic articles per entity
+        │
+        ▼
+  HydraDB storage             Articles stored in your tenant, cross-linked
+        │
+        ▼
+  Wiki UI                     Browse, navigate, graph, query
+```
+
+---
+
+## Supported Formats
 
 | Format | Extension | Notes |
 |--------|-----------|-------|
-| Plain text / Markdown | `.txt`, `.md` | Date headers (`2024-01-15`) auto-split entries |
+| Plain text / Markdown | `.txt`, `.md` | Date headers (`2024-01-15`) auto-split into entries |
 | Day One JSON | `.json` | Full export with `entries` array |
-| Apple Notes HTML | `.html` | Exported HTML files |
+| Apple Notes HTML | `.html` | Standard HTML exports |
 | iMessage CSV | `.csv` | Exported with tools like iExporter |
 
 ---
 
 ## Demo
 
-Use the included `sample_diary.txt` to test the full pipeline. It contains 9 dated entries mentioning:
-- **People**: Rahul, Arjun, Priya
-- **Projects**: Zepto
-- **Places**: IIT Bombay, Goa, Bangalore, Kolkata
-- **Media**: Atomic Habits, Zero to One
-- **Events**: YC rejection
+A sample file is included at `sample_diary.txt`. It contains 9 dated diary entries and exercises the full pipeline end-to-end.
+
+Entities extracted from the sample:
+
+- **People** — Rahul, Arjun, Priya
+- **Places** — IIT Bombay, Goa, Bangalore, Kolkata
+- **Projects** — Zepto
+- **Media** — *Atomic Habits*, *Zero to One*
+- **Events** — YC rejection
+
+Drop the file in the upload zone and watch the pipeline run.
 
 ---
 
@@ -101,21 +142,21 @@ Use the included `sample_diary.txt` to test the full pipeline. It contains 9 dat
 ```
 src/
 ├── api/
-│   ├── gemini.js        ← Gemini 1.5 Flash wrapper
-│   └── hydradb.js       ← HydraDB REST wrapper
+│   ├── gemini.js           Gemini 1.5 Flash wrapper
+│   └── hydradb.js          HydraDB REST wrapper
 ├── lib/
-│   ├── pipeline.js      ← Absorption orchestrator
-│   ├── parsers.js       ← Format parsers
-│   ├── wikilinks.js     ← [[link]] resolver + backlinks
-│   └── graph.js         ← Graph data builder
+│   ├── pipeline.js         Absorption pipeline orchestrator
+│   ├── parsers.js          Format-specific file parsers
+│   ├── wikilinks.js        [[link]] resolver and backlink index
+│   └── graph.js            Knowledge graph data builder
 ├── context/
-│   └── WikiContext.jsx  ← Global state
+│   └── WikiContext.jsx     Global state
 ├── pages/
-│   ├── Home.jsx         ← Upload + progress
-│   ├── ArticlePage.jsx  ← Single article view
-│   ├── GraphPage.jsx    ← Knowledge graph
-│   ├── DirectoryPage.jsx← Browse by category
-│   └── QueryPage.jsx    ← Ask your wiki
+│   ├── Home.jsx            Upload interface and pipeline progress
+│   ├── ArticlePage.jsx     Single article view with backlinks
+│   ├── GraphPage.jsx       Interactive knowledge graph
+│   ├── DirectoryPage.jsx   Browse articles by category
+│   └── QueryPage.jsx       Natural language query interface
 └── components/
     ├── Sidebar.jsx
     ├── UploadZone.jsx
@@ -127,13 +168,18 @@ src/
 
 ---
 
-## Inspired by
+## Inspired By
 
-- [Andrej Karpathy's LLM-Wiki pattern](https://karpathy.ai) — "the LLM incrementally builds and maintains a persistent wiki"
-- [Farzapedia](https://twitter.com/farzaa) — "I had an LLM take 2,500 diary entries to create a personal Wikipedia"
-- [WikiThon hackathon](https://hydradb.com) powered by HydraDB
+- [Andrej Karpathy](https://karpathy.ai) — the pattern of using an LLM to incrementally build and maintain a persistent personal wiki
+- [Farzapedia](https://twitter.com/farzaa) — using 2,500 diary entries to generate a personal Wikipedia
+- [WikiThon](https://hydradb.com) — the hackathon that prompted this project, powered by HydraDB
 
 ---
 
-*PRD v2.0 — WikiThon Hackathon — May 2026*
-# wikimind
+## License
+
+MIT. See [LICENSE](./LICENSE) for details.
+
+---
+
+*WikiMind — WikiThon Hackathon, May 2026*

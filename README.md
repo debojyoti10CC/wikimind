@@ -95,3 +95,4 @@ src/
 ---
 
 *PRD v2.0 — WikiThon Hackathon — May 2026*
+# wikimind

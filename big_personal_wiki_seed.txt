@@ -1,0 +1,143 @@
+2025-01-03
+
+I met Rahul at Third Wave Coffee in Indiranagar after almost six months. We talked about Hydra, WikiMind Personal, and the strange feeling of building tools for memory while forgetting to sleep. Rahul said the upload flow felt magical but too fragile, which annoyed me because he was right. We compared it to Wikipedia and Farzapedia, and I wrote down a note to make the interface quieter and more encyclopedic.
+
+2025-01-05
+
+Priya reviewed the first WikiMind Personal demo on a video call from Bangalore. She immediately noticed that the sidebar felt useful but the main page did not yet feel like a real personal encyclopedia. She suggested adding stronger article titles, directories for People and Projects, and better references between Rahul, Hydra, and the YC Rejection story.
+
+2025-01-08
+
+Arjun and I discussed HydraDB in the library at IIT Bombay. He thinks the idea is strongest when each article evolves over time instead of being regenerated from scratch. We argued about whether WikiMind Personal should preserve contradictions. Arjun likes the idea of version history because it makes old beliefs visible.
+
+2025-01-11
+
+I spent the evening reading Atomic Habits and thinking about Rahul. The book made me notice that my own habits around shipping are erratic. I work intensely on Hydra for two days, disappear for three, and then return with a dramatic redesign. WikiMind Personal should probably surface patterns like this instead of just summarizing events.
+
+2025-01-14
+
+Priya introduced me to Meera, who works on knowledge graphs at a research lab in Kolkata. Meera asked whether WikiMind Personal can distinguish between people, places, projects, media, and decisions. Her question changed how I thought about directories. It should not be one giant notes app; it should be a structured map of my life.
+
+2025-01-18
+
+Rahul sent a long voice note about Zepto, speed, and why founders confuse urgency with clarity. He said the YC Rejection hurt because it made Hydra feel illegible to outsiders. I saved the phrase "urgency without clarity" because it feels like a recurring idea in my work.
+
+2025-01-21
+
+I visited Goa with Arjun and Priya. We sat near Anjuna Beach and talked about Zero to One, personal monopolies, and whether a private wiki could become a mirror rather than a productivity tool. Priya said WikiMind Personal should not sound like therapy, but it should be honest enough to reveal emotional loops.
+
+2025-01-25
+
+Meera sent me a paper about entity linking and context graphs. I tried applying the ideas to HydraDB. The strongest insight was that backlinks are the soul of a wiki. If Rahul links to YC Rejection, and YC Rejection links to Hydra, the graph tells a story that a flat diary cannot.
+
+2025-02-02
+
+I had a difficult call with Arjun about the Hydra roadmap. He thinks Query Mode is more important than the graph. I think the Knowledge Graph makes the product memorable. We compromised: upload first, articles second, graph third, ask-your-wiki fourth. This became the first clear product sequence for WikiMind Personal.
+
+2025-02-06
+
+Priya tested the sample diary and laughed because it made Rahul sound like a recurring Wikipedia character. She said that is exactly the point. A personal wiki should make ordinary people in my life feel historically important without becoming creepy or overdramatic.
+
+2025-02-09
+
+I worked from a coworking space in Bangalore and rebuilt the article page. The title typography still felt wrong. I kept comparing it to Wikipedia, especially the thin line under the heading and the small metadata under the title. WikiMind Personal needs that same sober authority.
+
+2025-02-13
+
+Rahul asked whether HydraDB should store raw diary entries separately from generated articles. I said yes. Sources are evidence, articles are interpretation. That distinction matters because WikiMind Personal should let future versions update Rahul's article without losing the original entry from January.
+
+2025-02-17
+
+I wrote a note called "The Priya Principle." It says that every feature should either help the user remember better or ask a better question. Priya liked it but warned me not to turn her into a slogan. The phrase still belongs in the Ideas directory because it keeps coming back.
+
+2025-02-20
+
+Arjun found a bug where generated articles created duplicate people because "Rahul" and "Rahul S." became separate entities. We discussed canonical names and slugs. Hydra should probably normalize aggressively but preserve display names. This felt boring until I realized it is the difference between a toy and a real wiki.
+
+2025-02-24
+
+I went home to Kolkata for a few days. Meera and I met near College Street and talked about memory. She said places become entities because they carry repeated emotional context. Kolkata is not just a city in these notes; it is where I reset, avoid work, and remember why I started.
+
+2025-03-01
+
+The YC Rejection still shows up in conversations with Rahul. It has become less painful and more useful. Rahul said the rejection forced us to explain Hydra in one sentence. My current sentence is: "Hydra turns scattered personal text into a living private Wikipedia." It is still not perfect, but it is getting closer.
+
+2025-03-04
+
+Priya and I mapped the first directories on a whiteboard: People, Projects, Places, Ideas, Events, Media, Decisions, and Patterns. Patterns felt the most personal. Atomic Habits, urgency without clarity, and the Priya Principle all belong there in some form.
+
+2025-03-08
+
+I reread Zero to One and underlined the chapter about secrets. The secret behind WikiMind Personal might be that people do not want another notes app. They want their own life to become searchable, cross-linked, and narratively coherent. That sounds grand, but the product has to feel calm.
+
+2025-03-12
+
+Arjun pushed me to make the upload flow reliable before touching the visual design again. He was right. I wanted to polish the Wikipedia skin, but HydraDB errors were still leaking into the UI. The practical lesson: infrastructure bugs destroy aesthetic confidence.
+
+2025-03-16
+
+Rahul sent feedback after uploading a month of notes. He found articles for Priya, Arjun, Hydra, Bangalore, and Atomic Habits. The Knowledge Graph made him understand why backlinks matter. He said the graph looked like "a nervous system for a diary," which I wrote down immediately.
+
+2025-03-19
+
+Priya asked whether Ask Your Wiki should cite articles by name. I said yes because otherwise it becomes another chatbot. The answer should say things like "According to Hydra" or "Your Rahul article suggests..." The citation style makes the response feel grounded.
+
+2025-03-22
+
+I spent the afternoon in IIT Bombay again and felt embarrassed by how attached I am to the place. Arjun said that is exactly why Places should exist as a directory. Some places are not just settings. IIT Bombay, Bangalore, Goa, and Kolkata each pull a different version of me forward.
+
+2025-03-27
+
+Meera critiqued the Knowledge Graph. She liked the colors but said the legend should not feel like a separate dashboard widget. She wants a graph that feels part of the encyclopedia. I made a note to reduce shadows, use Wikipedia borders, and keep the palette restrained.
+
+2025-04-02
+
+Rahul and I discussed whether WikiMind Personal should generate articles for media like Atomic Habits and Zero to One. We decided yes, but only when the media clearly affects decisions or patterns. A book mention is not enough. A book that changes behavior deserves an article.
+
+2025-04-06
+
+Priya noticed that my entries about Hydra often include food, weather, and sleep. She said the product might eventually identify body-state patterns. For now, WikiMind Personal should stay focused on named entities and obvious recurring ideas. Scope discipline remains hard.
+
+2025-04-10
+
+Arjun asked if version history should show what changed. I said eventually. Right now it only tracks versions and source entries. He called that "minimum viable historiography," which made me laugh. That phrase belongs in the Ideas directory if Gemini catches it.
+
+2025-04-14
+
+I returned to Bangalore and worked late on Query Mode. The question "What patterns do I have around failure?" produced a surprisingly useful answer when the index included YC Rejection, Hydra, Rahul, and Atomic Habits. The answer was not magic, but it was specific enough to feel personal.
+
+2025-04-18
+
+Meera suggested adding a Directory page that feels like Wikipedia categories. The current grid is useful, but it should read more like a category index than a startup dashboard. The UI should be boring in the best possible way.
+
+2025-04-21
+
+Priya and I had a tense conversation about ambition. She thinks I use Hydra as a way to avoid making direct decisions about my life. I disagreed, then later admitted she was partly right. WikiMind Personal should be able to store uncomfortable entries without turning them into motivational content.
+
+2025-04-25
+
+Rahul found another duplicate entity around "YC" and "YC Rejection." We decided the event should be "YC Rejection" because that phrase carries the emotional meaning. The project is Hydra. The people are Rahul, Priya, Arjun, and Meera. The place is Bangalore. The pattern is urgency without clarity.
+
+2025-04-29
+
+I read parts of Atomic Habits again and wrote that consistency is less romantic than intensity. That sentence belongs next to the Hydra roadmap. Arjun would probably agree. Priya would say I already know this and keep ignoring it.
+
+2025-05-03
+
+We demoed WikiMind Personal to a small group at a hackathon. People understood the Wikipedia metaphor instantly. The weaker part was trust: they wanted to know where the data goes. HydraDB being the user's tenant is important, but the UI has to communicate control without sounding like marketing.
+
+2025-05-07
+
+Goa came up again in a conversation with Rahul. He thinks the Goa trip was when WikiMind Personal stopped being a gimmick and became a worldview. I think that is too dramatic, but Anjuna Beach really did help the idea click. Some entries are evidence, others are mythology.
+
+2025-05-11
+
+Meera asked for a bigger seed file to test the graph. She said a tiny sample cannot reveal whether backlinks feel meaningful. I made a plan to write thirty or forty dated entries with repeated people, places, projects, media, events, and ideas. It should create a dense but understandable personal wiki.
+
+2025-05-15
+
+Priya reviewed the Wikipedia-style UI. She liked the left rail, the article borders, and the calmer typography. She still thinks the upload state could be more elegant. I told her that is fine because the first goal is to make the app feel trustworthy.
+
+2025-05-18
+
+I shipped a working pass of WikiMind Personal with HydraDB fixes, a Wikipedia-like skin, and this larger seed file. Rahul, Priya, Arjun, Meera, Hydra, WikiMind Personal, YC Rejection, Bangalore, Kolkata, Goa, IIT Bombay, Atomic Habits, and Zero to One should now form the core graph.
